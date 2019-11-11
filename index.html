@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Penguin Patch Reorder</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+    integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+
+
+
+  <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
+
+  <!-- <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif' rel='stylesheet' type='text/css'> -->
+  <link rel="stylesheet" href="css/panel.css">
+  <!-- <link rel="stylesheet" href="css/small-screen.css" media="screen and (min-width: 200px) and (max-width: 600px)">
+  <link rel="stylesheet" href="css/large-screen.css" media="screen and (min-width: 601px)"> -->
+
+  <link id="cssElement" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="css/all.min.css"> -->
+
+  
+
+</head>
+
+<body>
+  <div class="container">
+    <main class="cd-main-content">
+      <div id="orderItems" class="order-items">
+
+      </div>
+
+      <div class="row">
+        <div id="searchBar" class="form-group col-md-6 col-sm-6 col-xs-12">
+          <input type="text" id="itemSearch" class="form-control input-lg" onkeyup="searchForText()"
+            placeholder="Search.." title="Type in a category">
+
+        </div>
+        <!-- PLACEHOLDER FOR CATEGORY DROPDOWN -->
+        <div id="catMenuDesktop" class="col-md-6 col-sm-6" style="padding: 4px;"></div>
+        <!-- END PLACEHOLDER -->
+      </div>
+
+      <div id="catMenuMobile" class="scrollmenu">
+      </div>
+
+      <div id="itemList">
+        <!-- <div id="item1" class="order-item">
+            <div>
+              <img src="https://penguinpatch.com/sponsor/reorders/images/8011.jpg" class="product-icon" />
+            </div>
+            <div style="text-align: left;">
+              <span class="h3">Product Name That Is Long</span><br />
+              <span class="h4">Price: $0.25</span><br />
+              <span class="h5">Item: asdf</span><br />
+            </div>
+            <div class="order-item-add-to-cart">
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </button>
+                </span>
+                <input type="text" class="form-control input-number" value="1" min="1" max="10" style="text-align: center;">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </button>
+                </span>
+              </div>
+              <div>
+                <button type="button" class="btn btn-success">Add to cart</button>
+              </div>
+            </div>
+          </div> -->
+
+
+
+
+
+
+
+        <!-- <div class="order-item-new">
+          <div class="row">
+            <img src="https://penguinpatch.com/sponsor/reorders/images/8011.jpg" />
+          </div>
+          <div class="row">
+            <div class="col-xs-6" style="text-align: left;">
+              <span class="h3">Product Name That Is Long</span><br />
+              <span class="h4">Price: $0.25</span><br />
+              <span class="h5">Item: asdf</span><br />
+            </div>
+            <div class="col-xs-6">
+              <div class="order-item-add-to-cart">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number">
+                      <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                  </span>
+                  <input type="text" class="form-control input-number" value="1" min="1" max="10"
+                    style="text-align: center;">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number">
+                      <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                  </span>
+                </div>
+                <div>
+                  <p>&nbsp;</p>
+                  <button type="button" class="btn btn-success">Add to cart</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div> -->
+
+
+
+
+
+        <!-- DESKTOP TEMPLATE -->
+        <!-- <table class="table">
+            <thead>
+              <th></th>
+              <th>Product Name</th>
+              <th>Item #</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;"><img src="https://penguinpatch.com/sponsor/reorders/images/8011.jpg" /></td>
+                <td style="text-align: left;">
+                  <span class="h2">Sports Ticket</span><br />
+                  <span>categories</span>
+                </td>
+                <td style="text-align: left;">2345</td>
+                <td style="text-align: left;">$0.25</td>
+                <td><input type="text" class="form-control input-number" value="1" min="1" max="10" style="text-align: center; width: 55px;"></td>
+                <td><button type="button" class="btn btn-success">Add to cart</button></td>
+              </tr>
+            </tbody>
+          </table> -->
+        <!-- END OF DESKTOP TEMPLATE -->
+
+      </div>
+
+      <div id="bags"></div>
+
+      <div id="additional"></div>
+
+      <a href="#0" class="float-button js-cd-panel-trigger" data-panel="main" style="z-index: 999;">
+        <!-- <i class="fas fa-shopping-cart float-button-icon"></i> -->
+        <span class="float-button-icon glyphicon glyphicon-shopping-cart"></span>
+      </a>
+    </main>
+
+    <div class="cd-panel cd-panel--from-right js-cd-panel-main" style="z-index: 1000;">
+      <header class="cd-panel__header">
+        <h2 style="margin-top: 10px;">Cart</h2>
+        <a href="#0" class="cd-panel__close js-cd-close">Close</a>
+      </header>
+
+      <div class="cd-panel__container">
+        <div class="cd-panel__content">
+          <!-- <table class="table">
+            <thead>
+              <th>Item Info</th>
+              <th>Quantity</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="h3">ITEM NAME</span><br />
+                  <span class="h4">Price: &#36;0.25</span><br />
+                  <span class="h5">Item: 4344</span><br />
+                </td>
+                <td>
+                  <input id="item{{itemID}}" type="number" class="form-control input-number" value="0"
+                    onblur="checkInput('item{{itemID}}')" min="1" max="999" style="text-align: center; width: 50px;">
+                </td>
+                <td style="text-align: center;">
+                  <button type="button" class="btn btn-primary" onClick="updateItemInCart()">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                  </button>
+                  <button type="button" class="btn btn-danger" onClick="removeItemFromCart()">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+        </div> <!-- cd-panel__content -->
+        <div class="cart-footer">
+          <div class="dropup">
+            <button type="button" id="bagsButton" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-plus"></span>
+              Add Bags
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="bagsButton">
+
+            </ul>
+          </div>
+          <div>
+            <button type="button" id="checkout" class="btn btn-success">Checkout</button>
+          </div>
+
+        </div>
+      </div> <!-- cd-panel__container -->
+    </div> <!-- cd-panel -->
+
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="confirmRemove" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Remove item from cart</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to remove the item from your cart?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+            onClick="removeItemFromCart()">Yes</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- SNACKBAR -->
+  <div id="snackbar" style="z-index: 9999;"></div>
+
+
+
+  <!-- <script src="js/panel.js"></script> -->
+  <!-- <script src="js/reorder.js"></script> -->
+  <script src="js/reorder-compiled.js"></script>
+</body>
+
+</html>
