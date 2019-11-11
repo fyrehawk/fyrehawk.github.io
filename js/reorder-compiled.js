@@ -66,7 +66,7 @@ $(function () {
     $.ajax({
       // The URL for the request
       // url: "https://penguinpatch.com/sponsor/api/reorder/",
-      url: "http://demo1573184.mockable.io/reorder",
+      url: "https://demo1573184.mockable.io/reorder",
       // The data to send (will be converted to a query string)
       data: {
         token: "xla0sIskoalSqQwpk0230la",
