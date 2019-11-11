@@ -5,6 +5,7 @@
 var categories = [];
 var orderItems = [];
 var bags = [];
+var bagsInCart = [];
 var additional = [];
 var visibleItems = [];
 var cart = [];
