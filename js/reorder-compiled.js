@@ -22,31 +22,10 @@ window.addEventListener("orientationchange", function () {
   } else {
     $("#cssElement").attr('href', 'css/small-screen.css');
   }
-}); // Template item for each order item
-// const orderItemMobileTemplate = `
-//     <div id="item1" class="order-item">
-//       <div>
-//           <img src="{{imageUrl}}" class="product-icon" />
-//       </div>
-//       <div style="text-align: left;">
-//         <span class="h3">{{productName}}</span><br />
-//         <span class="h4">Price: &#36;{{price}}</span><br />
-//         <span class="h5">Item: {{itemNumber}}</span><br />
-//         <span><small>{{categories}}</small></span>
-//       </div>
-//       <div class="order-item-add-to-cart">
-//       <input id="item{{itemID}}" type="number" class="form-control input-number" value="0" onblur="checkInput('item{{itemID}}')" 
-//       min="1" max="999" style="text-align: center; width: 55px;">
-//         <div>
-//           <button type="button" class="btn btn-success" onClick="addToCart({{itemID}})">Add to cart</button>
-//         </div>
-//       </div>
-//     </div>
-// `;
-
-var orderItemMobileTemplate = "\n  <div class=\"order-item-new\">\n    <div class=\"row\" style=\"padding-bottom: 5px;\">\n      <img src=\"{{imageUrl}}\" />\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-12\" style=\"text-align: left; padding-bottom: 5px;\">\n        <span class=\"h3\">{{productName}}</span>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-6\" style=\"text-align: left;\">\n        <span class=\"h4\">Price: &#36;{{price}}</span><br />\n        <span class=\"h5\">Item: {{itemNumber}}</span><br />\n        <span><small>{{categories}}</small></span>\n      </div>\n      <div class=\"col-xs-6\">\n        <div class=\"order-item-add-to-cart\">\n          <div class=\"input-group\">\n            <span class=\"input-group-btn\">\n              <button type=\"button\" class=\"btn btn-default btn-number\" onclick=\"subQuantity('item{{itemID}}')\">\n                <span class=\"glyphicon glyphicon-minus\"></span>\n              </button>\n            </span>\n            <input id=\"item{{itemID}}\" type=\"number\" class=\"form-control input-number\" value=\"0\" min=\"1\" max=\"999\" onblur=\"checkInput('item{{itemID}}')\"\n              style=\"text-align: center;\">\n            <span class=\"input-group-btn\">\n              <button type=\"button\" class=\"btn btn-default btn-number\" onclick=\"addQuantity('item{{itemID}}')\">\n                <span class=\"glyphicon glyphicon-plus\"></span>\n              </button>\n            </span>\n          </div>\n          <div style=\"padding-bottom: 5px;\">\n            <br />\n            <button type=\"button\" class=\"btn btn-success\" onClick=\"addToCart('{{itemID}}')\">Add to cart</button>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n";
+});
+var orderItemMobileTemplate = "\n  <div class=\"order-item-new\">\n    <div class=\"row\" style=\"padding-bottom: 5px;\">\n      <img src=\"{{imageUrl}}\" style=\"max-width: 200px;\" />\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-12\" style=\"text-align: left; padding-bottom: 5px;\">\n        <span class=\"h3\">{{productName}}</span>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-xs-6\" style=\"text-align: left;\">\n        <span class=\"h4\">Price: &#36;{{price}}</span><br />\n        <span class=\"h5\">Item: {{itemNumber}}</span>\n      </div>\n      <div class=\"col-xs-6\">\n        <div class=\"order-item-add-to-cart\">\n          <div class=\"input-group\">\n            <span class=\"input-group-btn\">\n              <button type=\"button\" class=\"btn btn-default btn-number\" onclick=\"subQuantity('item{{itemID}}')\">\n                <span class=\"glyphicon glyphicon-minus\"></span>\n              </button>\n            </span>\n            <input id=\"item{{itemID}}\" type=\"number\" class=\"form-control input-number\" value=\"0\" min=\"1\" max=\"999\" onblur=\"checkInput('item{{itemID}}')\"\n              style=\"text-align: center;\">\n            <span class=\"input-group-btn\">\n              <button type=\"button\" class=\"btn btn-default btn-number\" onclick=\"addQuantity('item{{itemID}}')\">\n                <span class=\"glyphicon glyphicon-plus\"></span>\n              </button>\n            </span>\n          </div>\n          <div style=\"padding-bottom: 5px;\">\n            <br />\n            <button type=\"button\" class=\"btn btn-success\" onClick=\"addToCart('{{itemID}}')\">Add to cart</button>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n";
 var orderItemTable = "\n  <table id=\"itemTable\" class=\"table\">\n    <thead>\n      <th></th>\n      <th>Product Name</th>\n      <th>Item #</th>\n      <th>Price</th>\n      <th>Quantity</th>\n      <th></th>\n    </thead>\n    <tbody>\n      \n    </tbody>\n  </table>\n";
-var orderItemDesktopTemplate = "\n  <tr>\n    <td style=\"text-align: left;\"><img src=\"{{imageUrl}}\" /></td>\n    <td style=\"text-align: left;\">\n      <span class=\"h2\">{{productName}}</span><br />\n      {{categories}}\n    </td>\n    <td style=\"text-align: left;\">{{itemNumber}}</td>\n    <td style=\"text-align: left;\">&#36;{{price}}</td>\n    <td><input id=\"item{{itemID}}\" type=\"number\" class=\"form-control input-number\" value=\"0\" onblur=\"checkInput('item{{itemID}}')\" \n      min=\"1\" max=\"999\" style=\"text-align: center; width: 55px;\"></td>\n    <td><button type=\"button\" class=\"btn btn-success\" onclick=\"addToCart('{{itemID}}')\">Add to cart</button></td>\n  </tr>\n";
+var orderItemDesktopTemplate = "\n  <tr>\n    <td style=\"text-align: left; max-width: 200px;\"><img src=\"{{imageUrl}}\" style=\"max-width: 200px;\" /></td>\n    <td style=\"text-align: left;\">\n      <span class=\"h2\">{{productName}}</span>\n    </td>\n    <td style=\"text-align: left;\">{{itemNumber}}</td>\n    <td style=\"text-align: left;\">&#36;{{price}}</td>\n    <td><input id=\"item{{itemID}}\" type=\"number\" class=\"form-control input-number\" value=\"0\" onblur=\"checkInput('item{{itemID}}')\" \n      min=\"1\" max=\"999\" style=\"text-align: center; width: 55px;\"></td>\n    <td><button type=\"button\" class=\"btn btn-success\" onclick=\"addToCart('{{itemID}}')\">Add to cart</button></td>\n  </tr>\n";
 var cartTableTemplate = "\n  <table id=\"cartTable\" class=\"table\">\n    <thead>\n      <th>Item Info</th>\n      <th>Quantity</th>\n      <th></th>\n    </thead>\n    <tbody>\n    </tbody>\n  </table>\n";
 var cartItemTemplate = "\n  <tr>\n    <td>\n      <span class=\"h3\">{{productName}}</span><br />\n      <span class=\"h4\">Price: &#36;{{price}}</span><br />\n      <span class=\"h5\">Item: {{itemNumber}}</span><br />\n    </td>\n    <td>\n      <input id=\"cartItem{{itemID}}\" type=\"number\" class=\"form-control input-number\" value=\"{{quantity}}\"\n        onblur=\"checkInput('cartItem{{itemID}}')\" min=\"1\" max=\"999\" style=\"text-align: center; width: 50px;\">\n    </td>\n    <td style=\"text-align: center;\">\n      <button type=\"button\" class=\"btn btn-primary\" onClick=\"updateItemInCart('{{itemID}}')\">\n        <span class=\"glyphicon glyphicon-refresh\"></span>\n      </button>\n      <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#confirmRemove\" onclick=\"setCurrentRemoveItemID('{{itemID}}')\">\n        <span class=\"glyphicon glyphicon-trash\"></span>\n      </button>\n    </td>\n  </tr>\n";
 $(function () {
@@ -492,32 +471,11 @@ function addOrderItemsForMobile() {
       newItemTemplate = newItemTemplate.replace("{{quantity}}", item.quantity);
       newItemTemplate = newItemTemplate.replace(/{{itemID}}/g, item.itemID);
       var categoryElementString = ''; // Now the categories
+      // for (const category of item.categories) {
+      //   categoryElementString += `<span class="label label-primary">${category}</span> `;
+      // }
+      // newItemTemplate = newItemTemplate.replace("{{categories}}", categoryElementString);
 
-      var _iteratorNormalCompletion10 = true;
-      var _didIteratorError10 = false;
-      var _iteratorError10 = undefined;
-
-      try {
-        for (var _iterator10 = item.categories[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-          var category = _step10.value;
-          categoryElementString += "<span class=\"label label-primary\">".concat(category, "</span> ");
-        }
-      } catch (err) {
-        _didIteratorError10 = true;
-        _iteratorError10 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
-            _iterator10.return();
-          }
-        } finally {
-          if (_didIteratorError10) {
-            throw _iteratorError10;
-          }
-        }
-      }
-
-      newItemTemplate = newItemTemplate.replace("{{categories}}", categoryElementString);
       itemList.append(newItemTemplate);
     }
   } catch (err) {
@@ -540,13 +498,13 @@ function addOrderItemsForDesktop() {
   var itemList = $("#itemList").empty();
   var itemTable = $(orderItemTable);
   itemList.prepend(itemTable);
-  var _iteratorNormalCompletion11 = true;
-  var _didIteratorError11 = false;
-  var _iteratorError11 = undefined;
+  var _iteratorNormalCompletion10 = true;
+  var _didIteratorError10 = false;
+  var _iteratorError10 = undefined;
 
   try {
-    for (var _iterator11 = visibleItems[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-      var item = _step11.value;
+    for (var _iterator10 = visibleItems[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+      var item = _step10.value;
       var newItemTemplate = orderItemDesktopTemplate;
       newItemTemplate = newItemTemplate.replace("{{imageUrl}}", item.imageUrl);
       newItemTemplate = newItemTemplate.replace("{{itemNumber}}", item.itemNumber);
@@ -555,45 +513,24 @@ function addOrderItemsForDesktop() {
       newItemTemplate = newItemTemplate.replace("{{quantity}}", item.quantity);
       newItemTemplate = newItemTemplate.replace(/{{itemID}}/g, item.itemID);
       var categoryElementString = ''; // Now the categories
+      // for (const category of item.categories) {
+      //   categoryElementString += `<span class="label label-primary">${category}</span> `;
+      // }
+      // newItemTemplate = newItemTemplate.replace("{{categories}}", categoryElementString);
 
-      var _iteratorNormalCompletion12 = true;
-      var _didIteratorError12 = false;
-      var _iteratorError12 = undefined;
-
-      try {
-        for (var _iterator12 = item.categories[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
-          var category = _step12.value;
-          categoryElementString += "<span class=\"label label-primary\">".concat(category, "</span> ");
-        }
-      } catch (err) {
-        _didIteratorError12 = true;
-        _iteratorError12 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion12 && _iterator12.return != null) {
-            _iterator12.return();
-          }
-        } finally {
-          if (_didIteratorError12) {
-            throw _iteratorError12;
-          }
-        }
-      }
-
-      newItemTemplate = newItemTemplate.replace("{{categories}}", categoryElementString);
       $("#itemTable > tbody:last-child").append(newItemTemplate);
     }
   } catch (err) {
-    _didIteratorError11 = true;
-    _iteratorError11 = err;
+    _didIteratorError10 = true;
+    _iteratorError10 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion11 && _iterator11.return != null) {
-        _iterator11.return();
+      if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
+        _iterator10.return();
       }
     } finally {
-      if (_didIteratorError11) {
-        throw _iteratorError11;
+      if (_didIteratorError10) {
+        throw _iteratorError10;
       }
     }
   }
